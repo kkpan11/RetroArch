@@ -651,6 +651,10 @@ MSG_HASH(
    "JIT disponible"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Identificador de paquete"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Identificador del front-end"
    )
@@ -1126,6 +1130,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Guarda la configuración actual en un archivo aparte."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Guardar configuración como..."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Guarda la configuración actual en un archivo de configuración personalizada."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Guardar configuración principal"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Guarda la configuración actual en la principal."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2127,7 +2147,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centrado del eje X"
+   "Centrado horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2135,11 +2155,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Ajuste de pórticos"
+   "Tamaño horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Modifica este ajuste para alterar la configuración de los pórticos y cambiar el tamaño de la imagen."
+   "Modifica este ajuste para alterar la configuración horizontal y cambiar el tamaño de la imagen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Centrado vertical"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2272,7 +2296,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
-   "Umbral de frecuencia de actualización PAL"
+   "Umbral de cambio de frecuencia de actualización a PAL"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
@@ -2665,7 +2689,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "La sincronía vertical se mantendrá activada hasta que el rendimiento sea inferior al necesario para mantener la frecuencia de actualización de la pantalla. Puede reducir los tirones provocados al caer el rendimiento por debajo de la velocidad real y mejorar la eficiencia energética."
+   "La sincronía vertical se mantendrá activada hasta que el rendimiento sea inferior al necesario para mantener la frecuencia de actualización de la pantalla. Puede reducir los tirones provocados al caer el rendimiento por debajo de la velocidad real y mejorar la eficiencia energética. Esta opción no es compatible con el retraso de fotogramas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4354,6 +4378,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Arma: Cruceta derecha"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo"
    )
 
 /* Settings > Latency */
@@ -11583,6 +11611,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Fuente"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Selecciona el tipo de letra usado en el menú."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Ocultar barra lateral"
    )
@@ -11629,6 +11665,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Cambia el tamaño de la barra de miniaturas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Factor de espaciado"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Cambia la escala del espaciado horizontal."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Separador del encabezado"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Indica un ancho alternativo para los separadores del encabezado y del pie de página."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "No compartir"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Valor máximo"
    )
 
 MSG_HASH(
@@ -12339,7 +12399,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ADD_FILES,
-   "Agregar archivo(s)..."
+   "Agregar archivos..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ADD_FOLDER,
@@ -13607,7 +13667,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_COULD_NOT_READ_MOVIE_HEADER,
-   "No se puede leer la cabecera de la repetición."
+   "No se puede leer el encabezado de la repetición."
    )
 MSG_HASH(
    MSG_COULD_NOT_READ_STATE_FROM_MOVIE,
@@ -13615,7 +13675,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_CRC32_CHECKSUM_MISMATCH,
-   "El CRC32 del contenido no concuerda con el de la cabecera de la repetición. Es muy probable que la repetición no se muestre sincronizada."
+   "El CRC32 del contenido no concuerda con el del encabezado de la repetición. Es muy probable que la repetición no se muestre sincronizada."
    )
 MSG_HASH(
    MSG_CUSTOM_TIMING_GIVEN,
@@ -14203,7 +14263,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Se ha guardado una nueva configuración en"
+   "Se ha guardado la configuración en"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,
@@ -15645,7 +15705,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_3DS_BOTTOM_MENU_ASSET_NOT_FOUND,
-   "Recurso(s) no encontrado(s)"
+   "Recursos no encontrados"
    )
 MSG_HASH(
    MSG_3DS_BOTTOM_MENU_NO_STATE_DATA,

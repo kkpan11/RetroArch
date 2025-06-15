@@ -631,6 +631,10 @@ MSG_HASH(
    "JIT verfügbar"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Bundle-Kennung"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Frontend-Kennung"
    )
@@ -1078,6 +1082,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Aktuelle Konfiguration als gesonderte Datei speichern."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Konfiguration speichern unter"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Aktuelle Konfiguration als angepasste Konfiguration speichern."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Hauptkonfiguration speichern"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Aktuelle Konfiguration als Hauptkonfiguration speichern."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2051,7 +2071,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "X-Achsenzentrierung"
+   "Horizontale Zentrierung"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2059,11 +2079,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Schwarzschultern anpassen"
+   "Horizontale Größe"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Versuche eine dieser Einstellungen, um die Schwarzschultern anzupassen und die Bildgröße zu ändern."
+   "Durch diese Optionen blättern, um die horizontalen Einstellungen zur Änderung der Bildgröße anzupassen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Vertikale Zentrierung"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2585,7 +2609,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync bleibt aktiviert, bis die Leistung unter die Ziel-Wiederholfrequenz fällt. Kann energieeffizienter sein und Ruckeln minimieren, wenn die Leistung unter Echtzeit fällt."
+   "VSync bleibt aktiviert, bis die Leistung unter die Zielwiederholfrequenz fällt. Kann Ruckeln minimieren, wenn die Leistung unter Echtzeit fällt, und kann energieeffizienter sein. Nicht kompatibel mit „Bildverzögerung“."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4254,6 +4278,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Pistole Steuerkreuz rechts"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbofeuer"
    )
 
 /* Settings > Latency */
@@ -11339,6 +11367,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Schriftart"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Eine andere Schriftart wählen, die im Menü verwendet werden soll."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Seitenleiste einklappen"
    )
@@ -11385,6 +11421,26 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Vorschaubilderleiste skalieren."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Auffüllfaktor"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Die horizontale Auffüllgröße skalieren."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Kopfzeilentrenner"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Alternative Breite für Kopf- und Fußzeilentrenner."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Ohne"
    )
 
 MSG_HASH(
@@ -13871,7 +13927,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Neue Konfiguration gespeichert in"
+   "Konfiguration gespeichert in"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

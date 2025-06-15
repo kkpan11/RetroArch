@@ -1718,10 +1718,6 @@ MSG_HASH(
    "فراتفکیک‌پذیری CRT"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "مرکز کردن محور X"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
    "استفاده از فهرست با وضوح بالا"
    )
@@ -3498,6 +3494,10 @@ MSG_HASH(
 
 /* Ozone: Settings > User Interface > Appearance */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "هیچکدام"
+   )
 
 
 

@@ -534,6 +534,42 @@ end:
    return count;
 }
 
+static int menu_core_info_md5_parse(core_info_t *core_info, unsigned i, unsigned *j_ret)
+{
+   int spc;
+   unsigned j;
+   unsigned pos = 0;
+   char firmware_basename[64];
+   char tmp[64];
+
+   strlcpy(tmp,
+         core_info->firmware[i].desc, sizeof(tmp));
+
+   spc = string_find_index_substring_string(tmp, " (");
+   if (spc >= 0)
+      tmp[spc] = '\0';
+
+   spc = string_find_index_substring_string(tmp, " |");
+   if (spc >= 0)
+      tmp[spc] = '\0';
+
+   fill_pathname_base(firmware_basename,
+         tmp, sizeof(firmware_basename));
+
+   for (j = 0; j < core_info->note_list->size; j++)
+   {
+      if (     !strstr(core_info->note_list->elems[j].data, firmware_basename)
+            || !strstr(core_info->note_list->elems[j].data, "(md5)"))
+         continue;
+
+      pos = string_find_index_substring_string(core_info->note_list->elems[j].data, "(md5)");
+      break;
+   }
+
+   *j_ret = j;
+   return pos;
+}
+
 static int menu_displaylist_parse_core_info(
       file_list_t *list,
       uint32_t info_type,
@@ -748,6 +784,7 @@ static int menu_displaylist_parse_core_info(
    if (core_info->firmware_count > 0)
    {
       char tmp_path[PATH_MAX_LENGTH];
+      char tmp_desc[PATH_MAX_LENGTH];
       core_info_ctx_firmware_t firmware_info;
       uint8_t flags                   = content_get_flags();
       bool update_missing_firmware    = false;
@@ -848,34 +885,38 @@ static int menu_displaylist_parse_core_info(
                         : (core_info->firmware[i].optional ? present_optional : present_required),
                   core_info->firmware[i].desc ? core_info->firmware[i].desc : rdb_entry_name
             );
+            tmp_desc[0] = '\0';
 
-            if (menu_entries_append(list, tmp, "",
+            /* Parse md5 checksum rows as sublabels */
+            if (     core_info->notes
+                  && settings->bools.menu_show_sublabels)
+            {
+               unsigned j;
+               unsigned pos = menu_core_info_md5_parse(core_info, i, &j);
+
+               if (pos)
+               {
+                  core_info_list_hide[j] = true;
+                  strlcpy(tmp_desc,
+                        core_info->note_list->elems[j].data + pos,
+                        sizeof(tmp_desc));
+               }
+            }
+
+            if (menu_entries_append(list, tmp, tmp_desc,
                   MENU_ENUM_LABEL_CORE_INFO_ENTRY,
-                  MENU_SETTINGS_CORE_INFO_NONE, 0, 0, NULL))
+                  MENU_SETTINGS_CORE_INFO_NONE, 0, i, NULL))
                count++;
 
             /* Show relevant note row and skip showing it later */
-            if (core_info->notes)
+            if (     core_info->notes
+                  && !settings->bools.menu_show_sublabels)
             {
-               int spc;
                unsigned j;
-               char firmware_basename[64];
-               fill_pathname_base(firmware_basename,
-                     core_info->firmware[i].desc, sizeof(firmware_basename));
+               unsigned pos = menu_core_info_md5_parse(core_info, i, &j);
 
-               spc = string_find_index_substring_string(firmware_basename, " ");
-               if (spc >= 0)
-                  firmware_basename[spc] = '\0';
-
-               for (j = 0; j < core_info->note_list->size; j++)
+               if (pos)
                {
-                  unsigned pos;
-                  if (     !strstr(core_info->note_list->elems[j].data, firmware_basename)
-                        || !strstr(core_info->note_list->elems[j].data, "(md5)"))
-                     continue;
-
-                  pos = string_find_index_substring_string(core_info->note_list->elems[j].data, "(md5)");
-
                   core_info_list_hide[j] = true;
                   __len = strlcpy(tmp, "- ", sizeof(tmp));
                   strlcpy(      tmp + __len,
@@ -886,7 +927,6 @@ static int menu_displaylist_parse_core_info(
                         MENU_ENUM_LABEL_CORE_INFO_ENTRY,
                         MENU_SETTINGS_CORE_INFO_NONE, 0, 0, NULL))
                      count++;
-                  break;
                }
             }
          }
@@ -1827,7 +1867,10 @@ static unsigned menu_displaylist_parse_system_info(file_list_t *list)
          msg_hash_to_str(MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_BUILD_DATE),
          sizeof(entry));
    _len       += strlcpy(entry + _len, ": ", sizeof(entry) - _len);
-   strlcpy(entry + _len, __DATE__, sizeof(entry) - _len);
+   _len       += strlcpy(entry + _len, __DATE__, sizeof(entry) - _len);
+#ifdef DEBUG
+   _len       += strlcpy(entry + _len, " (DEBUG)", sizeof(entry) - _len);
+#endif
    if (menu_entries_append(list, entry, "",
          MENU_ENUM_LABEL_SYSTEM_INFO_ENTRY, MENU_SETTINGS_CORE_INFO_NONE,
          0, 0, NULL))
@@ -1929,6 +1972,28 @@ static unsigned menu_displaylist_parse_system_info(file_list_t *list)
             MENU_ENUM_LABEL_SYSTEM_INFO_ENTRY, MENU_SETTINGS_CORE_INFO_NONE,
             0, 0, NULL))
          count++;
+   }
+#endif
+#ifdef __APPLE__
+   {
+      CFBundleRef mainBundle = CFBundleGetMainBundle();
+      if (mainBundle)
+      {
+         CFStringRef bundleIdentifier = CFBundleGetIdentifier(mainBundle);
+         if (bundleIdentifier)
+         {
+            size_t _len    = strlcpy(entry,
+                  msg_hash_to_str(MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER),
+                  sizeof(entry));
+            Boolean result = CFStringGetCString(bundleIdentifier, entry + _len, sizeof(entry) - _len, kCFStringEncodingUTF8);
+            if (result) {
+               if (menu_entries_append(list, entry, "",
+                           MENU_ENUM_LABEL_SYSTEM_INFO_ENTRY, MENU_SETTINGS_CORE_INFO_NONE,
+                           0, 0, NULL))
+                  count++;
+            }
+         }
+      }
    }
 #endif
 
@@ -3662,6 +3727,13 @@ static int menu_displaylist_parse_load_content_settings(
 
             if (settings->bools.quick_menu_show_undo_save_load_state)
             {
+               if (menu_entries_append(list,
+                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UNDO_SAVE_STATE),
+                        msg_hash_to_str(MENU_ENUM_LABEL_UNDO_SAVE_STATE),
+                        MENU_ENUM_LABEL_UNDO_SAVE_STATE,
+                        MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
+                  count++;
+
 #ifdef HAVE_CHEEVOS
                if (!rcheevos_hardcore_active())
 #endif
@@ -3673,13 +3745,6 @@ static int menu_displaylist_parse_load_content_settings(
                            MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
                      count++;
                }
-
-               if (menu_entries_append(list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UNDO_SAVE_STATE),
-                        msg_hash_to_str(MENU_ENUM_LABEL_UNDO_SAVE_STATE),
-                        MENU_ENUM_LABEL_UNDO_SAVE_STATE,
-                        MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
-                  count++;
             }
          }
       }
@@ -6095,11 +6160,10 @@ static int menu_displaylist_parse_input_description_list(
                sizeof(input_description));
          if (i >= RARCH_FIRST_CUSTOM_BIND)
          {
-            input_description   [  _len] = ' ';
             if ((i % 2) == 0)
-               input_description[++_len] = '+';
+               input_description[  _len] = '+';
             else
-               input_description[++_len] = '-';
+               input_description[  _len] = '-';
             input_description   [++_len] = '\0';
          }
 
@@ -9856,6 +9920,10 @@ unsigned menu_displaylist_build_list(
             if (video_vsync)
             {
                if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(list,
+                        MENU_ENUM_LABEL_VIDEO_ADAPTIVE_VSYNC,
+                        PARSE_ONLY_BOOL, false) == 0)
+                  count++;
+               if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(list,
                         MENU_ENUM_LABEL_VIDEO_SWAP_INTERVAL,
                         PARSE_ONLY_UINT, false) == 0)
                   count++;
@@ -9886,10 +9954,6 @@ unsigned menu_displaylist_build_list(
                            PARSE_ONLY_UINT, false) == 0)
                      count++;
                }
-               if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(list,
-                        MENU_ENUM_LABEL_VIDEO_ADAPTIVE_VSYNC,
-                        PARSE_ONLY_BOOL, false) == 0)
-                  count++;
             }
 
             if (video_driver_test_all_flags(GFX_CTX_FLAGS_HARD_SYNC))
@@ -9922,7 +9986,7 @@ unsigned menu_displaylist_build_list(
                if (video_wait_swap)
                   if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(list,
                            MENU_ENUM_LABEL_VIDEO_MAX_FRAME_LATENCY,
-                           PARSE_ONLY_UINT, false) == 0)
+                           PARSE_ONLY_INT, false) == 0)
                      count++;
             }
 
@@ -10088,6 +10152,7 @@ unsigned menu_displaylist_build_list(
                {MENU_ENUM_LABEL_CRT_SWITCH_RESOLUTION_SUPER,                           PARSE_ONLY_UINT},
                {MENU_ENUM_LABEL_CRT_SWITCH_X_AXIS_CENTERING,                           PARSE_ONLY_INT },
                {MENU_ENUM_LABEL_CRT_SWITCH_PORCH_ADJUST,                               PARSE_ONLY_INT },
+               {MENU_ENUM_LABEL_CRT_SWITCH_VERTICAL_ADJUST,                            PARSE_ONLY_INT },
                {MENU_ENUM_LABEL_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,         PARSE_ONLY_BOOL},
                {MENU_ENUM_LABEL_CRT_SWITCH_HIRES_MENU,         PARSE_ONLY_BOOL},
             };
@@ -10510,7 +10575,7 @@ unsigned menu_displaylist_build_list(
                {
                   MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(list,
                         MENU_ENUM_LABEL_VIDEO_MAX_FRAME_LATENCY,
-                        PARSE_ONLY_UINT, false);
+                        PARSE_ONLY_INT, false);
                      count++;
                }
             }
@@ -10820,6 +10885,18 @@ unsigned menu_displaylist_build_list(
                      msg_hash_to_str(MENU_ENUM_LABEL_VALUE_SAVE_NEW_CONFIG),
                      msg_hash_to_str(MENU_ENUM_LABEL_SAVE_NEW_CONFIG),
                      MENU_ENUM_LABEL_SAVE_NEW_CONFIG,
+                     MENU_SETTING_ACTION, 0, 0, NULL))
+               count++;
+            if (menu_entries_append(list,
+                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG),
+                     msg_hash_to_str(MENU_ENUM_LABEL_SAVE_MAIN_CONFIG),
+                     MENU_ENUM_LABEL_SAVE_MAIN_CONFIG,
+                     MENU_SETTING_ACTION, 0, 0, NULL))
+               count++;
+            if (menu_entries_append(list,
+                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG),
+                     msg_hash_to_str(MENU_ENUM_LABEL_SAVE_AS_CONFIG),
+                     MENU_ENUM_LABEL_SAVE_AS_CONFIG,
                      MENU_SETTING_ACTION, 0, 0, NULL))
                count++;
             if (menu_entries_append(list,
@@ -11658,6 +11735,7 @@ unsigned menu_displaylist_build_list(
 
             menu_displaylist_build_info_selective_t build_list[] = {
                {MENU_ENUM_LABEL_MENU_SCALE_FACTOR,                            PARSE_ONLY_FLOAT,  true},
+               {MENU_ENUM_LABEL_OZONE_PADDING_FACTOR,                         PARSE_ONLY_FLOAT,  true},
                {MENU_ENUM_LABEL_MENU_FRAMEBUFFER_OPACITY,                     PARSE_ONLY_FLOAT,  true},
                {MENU_ENUM_LABEL_XMB_RIBBON_ENABLE,                            PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_XMB_THEME,                                    PARSE_ONLY_UINT,   true},
@@ -11692,6 +11770,7 @@ unsigned menu_displaylist_build_list(
                {MENU_ENUM_LABEL_XMB_SWITCH_ICONS,                             PARSE_ONLY_BOOL,   true},
                {MENU_ENUM_LABEL_MENU_RGUI_SWITCH_ICONS,                       PARSE_ONLY_BOOL,   true},
                {MENU_ENUM_LABEL_MATERIALUI_SWITCH_ICONS,                      PARSE_ONLY_BOOL,   true},
+               {MENU_ENUM_LABEL_OZONE_HEADER_SEPARATOR,                       PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_OZONE_COLLAPSE_SIDEBAR,                       PARSE_ONLY_BOOL,   true},
                {MENU_ENUM_LABEL_MATERIALUI_LANDSCAPE_LAYOUT_OPTIMIZATION,     PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MATERIALUI_SHOW_NAV_BAR,                      PARSE_ONLY_BOOL,   true},
@@ -11715,6 +11794,7 @@ unsigned menu_displaylist_build_list(
                {MENU_ENUM_LABEL_MENU_RGUI_THUMBNAIL_DELAY,                    PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,             PARSE_ONLY_BOOL,   true},
                {MENU_ENUM_LABEL_XMB_FONT,                                     PARSE_ONLY_PATH,   true},
+               {MENU_ENUM_LABEL_OZONE_FONT,                                   PARSE_ONLY_PATH,   true},
                {MENU_ENUM_LABEL_MENU_FONT_COLOR_RED,                          PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MENU_FONT_COLOR_GREEN,                        PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MENU_FONT_COLOR_BLUE,                         PARSE_ONLY_UINT,   true},
@@ -14114,6 +14194,13 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                      && settings->bools.quick_menu_show_save_load_state
                      && settings->bools.quick_menu_show_undo_save_load_state)
                {
+                  if (menu_entries_append(info->list,
+                           msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UNDO_SAVE_STATE),
+                           msg_hash_to_str(MENU_ENUM_LABEL_UNDO_SAVE_STATE),
+                           MENU_ENUM_LABEL_UNDO_SAVE_STATE,
+                           MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
+                     count++;
+
 #ifdef HAVE_CHEEVOS
                   if (!rcheevos_hardcore_active())
 #endif
@@ -14125,13 +14212,6 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                               MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
                         count++;
                   }
-
-                  if (menu_entries_append(info->list,
-                           msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UNDO_SAVE_STATE),
-                           msg_hash_to_str(MENU_ENUM_LABEL_UNDO_SAVE_STATE),
-                           MENU_ENUM_LABEL_UNDO_SAVE_STATE,
-                           MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
-                     count++;
                }
 #ifdef HAVE_BSV_MOVIE
                if (     savestates_enabled

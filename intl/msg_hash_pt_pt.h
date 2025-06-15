@@ -1942,20 +1942,8 @@ MSG_HASH(
    "Alterne entre resoluções nativas e ultrawide."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centralização do Eixo X"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "Alterne entre estas opções se a imagem não estiver centrada corretamente no ecrã."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Ajuste \"Porch\""
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Alterne entre estas opções para ajustar as configurações de \"porch\" para alterar o tamanho da imagem."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_HIRES_MENU,
@@ -4467,8 +4455,16 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Selecionar uma fonte principal diferente para ser usada pelo menu."
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_SCROLL_CONTENT_METADATA,
    "Quando ativado, cada item de metadados de conteúdo apresentado na barra lateral direita das listas de reprodução (núcleo associado, tempo de reprodução) ocupará uma única linha, e as cadeias que excedam a largura disponível serão automaticamente deslocadas. Quando desativado, cada item de metadados será exibido estaticamente, ocupando tantas linhas quantas forem necessárias."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Não partilhar"
    )
 
 
@@ -5624,10 +5620,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "Alcançado o final do buffer do recurso de retrocedimento do tempo."
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "Guardar nova configuração em"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

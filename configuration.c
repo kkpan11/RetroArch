@@ -161,6 +161,7 @@ enum microphone_driver_enum
    MICROPHONE_SDL2,
    MICROPHONE_WASAPI,
    MICROPHONE_PIPEWIRE,
+   MICROPHONE_COREAUDIO,
    MICROPHONE_NULL
 };
 
@@ -579,6 +580,8 @@ static const enum microphone_driver_enum MICROPHONE_DEFAULT_DRIVER = MICROPHONE_
 #elif defined(HAVE_SDL2)
 /* The default fallback driver is SDL2, if available. */
 static const enum microphone_driver_enum MICROPHONE_DEFAULT_DRIVER = MICROPHONE_SDL2;
+#elif defined(HAVE_COREAUDIO)
+static const enum microphone_driver_enum MICROPHONE_DEFAULT_DRIVER = MICROPHONE_COREAUDIO;
 #else
 static const enum microphone_driver_enum MICROPHONE_DEFAULT_DRIVER = MICROPHONE_NULL;
 #endif
@@ -1009,6 +1012,8 @@ const char *config_get_default_microphone(void)
          return "wasapi";
       case MICROPHONE_SDL2:
          return "sdl2";
+      case MICROPHONE_COREAUDIO:
+         return "coreaudio";
       case MICROPHONE_NULL:
          break;
    }
@@ -1688,6 +1693,9 @@ static struct config_path_setting *populate_settings_path(
 #ifdef HAVE_XMB
    SETTING_PATH("xmb_font",                      settings->paths.path_menu_xmb_font, false, NULL, true);
 #endif
+#ifdef HAVE_OZONE
+   SETTING_PATH("ozone_font",                    settings->paths.path_menu_ozone_font, false, NULL, true);
+#endif
 #endif /* HAVE_MENU */
 
 #ifdef HAVE_OVERLAY
@@ -2296,6 +2304,7 @@ static struct config_float_setting *populate_settings_float(
 #endif
 #ifdef HAVE_OZONE
    SETTING_FLOAT("ozone_thumbnail_scale_factor", &settings->floats.ozone_thumbnail_scale_factor, true, DEFAULT_OZONE_THUMBNAIL_SCALE_FACTOR, false);
+   SETTING_FLOAT("ozone_padding_factor",         &settings->floats.ozone_padding_factor, true, DEFAULT_OZONE_PADDING_FACTOR, false);
 #endif
 #endif /* HAVE_MENU */
 
@@ -2442,6 +2451,7 @@ static struct config_uint_setting *populate_settings_uint(
 #endif
 #ifdef HAVE_OZONE
    SETTING_UINT("ozone_menu_color_theme",        &settings->uints.menu_ozone_color_theme, true, DEFAULT_OZONE_COLOR_THEME, false);
+   SETTING_UINT("ozone_header_separator",        &settings->uints.menu_ozone_header_separator, true, DEFAULT_OZONE_HEADER_SEPARATOR, false);
 #endif
 #endif /* HAVE_MENU */
 
@@ -2500,7 +2510,6 @@ static struct config_uint_setting *populate_settings_uint(
    SETTING_UINT("video_hard_sync_frames",        &settings->uints.video_hard_sync_frames, true, DEFAULT_HARD_SYNC_FRAMES, false);
    SETTING_UINT("video_frame_delay",             &settings->uints.video_frame_delay,      true, DEFAULT_FRAME_DELAY, false);
    SETTING_UINT("video_max_swapchain_images",    &settings->uints.video_max_swapchain_images, true, DEFAULT_MAX_SWAPCHAIN_IMAGES, false);
-   SETTING_UINT("video_max_frame_latency",       &settings->uints.video_max_frame_latency, true, DEFAULT_MAX_FRAME_LATENCY, false);
    SETTING_UINT("video_black_frame_insertion",   &settings->uints.video_black_frame_insertion, true, DEFAULT_BLACK_FRAME_INSERTION, false);
    SETTING_UINT("video_bfi_dark_frames",         &settings->uints.video_bfi_dark_frames, true, DEFAULT_BFI_DARK_FRAMES, false);
    SETTING_UINT("video_shader_subframes",        &settings->uints.video_shader_subframes, true, DEFAULT_SHADER_SUBFRAMES, false);
@@ -2682,10 +2691,12 @@ static struct config_int_setting *populate_settings_int(
 
    SETTING_INT("crt_switch_center_adjust",       &settings->ints.crt_switch_center_adjust, false, DEFAULT_CRT_SWITCH_CENTER_ADJUST, false);
    SETTING_INT("crt_switch_porch_adjust",        &settings->ints.crt_switch_porch_adjust, false, DEFAULT_CRT_SWITCH_PORCH_ADJUST, false);
+   SETTING_INT("crt_switch_vertical_adjust",     &settings->ints.crt_switch_vertical_adjust, false, DEFAULT_CRT_SWITCH_VERTICAL_ADJUST, false);
 #ifdef HAVE_WINDOW_OFFSET
    SETTING_INT("video_window_offset_x",          &settings->ints.video_window_offset_x, true, DEFAULT_WINDOW_OFFSET_X, false);
    SETTING_INT("video_window_offset_y",          &settings->ints.video_window_offset_y, true, DEFAULT_WINDOW_OFFSET_Y, false);
 #endif
+   SETTING_INT("video_max_frame_latency",        &settings->ints.video_max_frame_latency, true, DEFAULT_MAX_FRAME_LATENCY, false);
 
 #ifdef HAVE_D3D10
    SETTING_INT("d3d10_gpu_index",                &settings->ints.d3d10_gpu_index, true, DEFAULT_D3D10_GPU_INDEX, false);
@@ -2908,6 +2919,9 @@ void config_set_defaults(void *data)
             def_menu);
 #ifdef HAVE_XMB
    *settings->paths.path_menu_xmb_font            = '\0';
+#endif
+#ifdef HAVE_OZONE
+   *settings->paths.path_menu_ozone_font          = '\0';
 #endif
 
    configuration_set_string(settings,
@@ -3514,6 +3528,7 @@ static config_file_t *open_default_config_file(void)
       goto error;
 
    path_set(RARCH_PATH_CONFIG, conf_path);
+   path_set(RARCH_PATH_CONFIG_DEFAULT, conf_path);
 
    return conf;
 
@@ -3994,7 +4009,11 @@ static bool config_load_file(global_t *global,
             settings->arrays.midi_output,
             DEFAULT_MIDI_OUTPUT);
 
-   path_config = path_get(RARCH_PATH_CONFIG);
+   /* History playlists must stay in default config path */
+   if (!path_is_empty(RARCH_PATH_CONFIG_DEFAULT))
+      path_config = path_get(RARCH_PATH_CONFIG_DEFAULT);
+   else
+      path_config = path_get(RARCH_PATH_CONFIG);
 
    if (string_is_empty(settings->paths.path_content_favorites))
       strlcpy(settings->paths.directory_content_favorites, "default",
@@ -5341,6 +5360,9 @@ bool config_save_file(const char *path)
    config_set_path(conf, "xmb_font",
          !string_is_empty(settings->paths.path_menu_xmb_font)
          ? settings->paths.path_menu_xmb_font : "");
+   config_set_path(conf, "ozone_font",
+         !string_is_empty(settings->paths.path_menu_ozone_font)
+         ? settings->paths.path_menu_ozone_font : "");
 #endif
 
    /* String settings  */
