@@ -655,6 +655,10 @@ MSG_HASH(
    "JIT доступен"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Идентификатор пакета"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Идентификатор фронтенда"
    )
@@ -1130,6 +1134,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Сохранение текущей конфигурации в отдельный файл."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Сохранить конфигурацию как"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Сохранение текущей конфигурации в файл по выбору пользователя."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Сохранить основную конфигурацию"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Сохранение текущей конфигурации в качестве основной."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2135,7 +2155,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Центровка по оси X"
+   "Центрирование по горизонтали"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2143,11 +2163,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Подстройка площадки гасящего импульса"
+   "Горизонтальный размер"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Выберите подходящую настройку площадки строчного гасящего импульса для изменения размеров изображения."
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Центрирование по вертикали"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2678,10 +2698,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Адаптивный VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync будет отключаться при снижении производительности ниже целевой частоты обновления. Помогает устранить подтормаживания при ухудшении производительности и повышает энергоэффективность."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4377,7 +4393,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
-   "Турбо"
+   "Турбо-кнопки"
    )
 
 /* Settings > Latency */
@@ -11627,6 +11643,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Шрифт"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Выбрать основной шрифт для меню интерфейса."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Сворачивать боковую панель"
    )
@@ -11673,6 +11697,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Изменяет размер области миниатюр."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Нет"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Нормально"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Максимум"
    )
 
 MSG_HASH(
@@ -14243,7 +14279,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Новая конфигурация сохранена в"
+   "Конфигурация сохранена в"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

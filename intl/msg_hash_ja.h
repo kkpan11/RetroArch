@@ -2098,20 +2098,8 @@ MSG_HASH(
    "ネイティブとウルトラワイドの超解像度を切り替えます。"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "X 軸センタリング"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "画像がディスプレイ上で正しく中央寄せされていない場合はこのオプションを微調整してください。"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "ポーチの調整"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "これらのオプションを微調整し、ポーチの設定を合わせ画像のサイズを変更します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2602,10 +2590,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "適応型垂直同期"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "実行速度がターゲットフレームレートを下回るまで垂直同期が有効になります。実行速度がリアルタイムを下回ったときのカクつきを最小限に抑え、電力効率を向上させます。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4118,6 +4102,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "ライトガン 十字キー 右"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "連射"
    )
 
 /* Settings > Latency */
@@ -11163,6 +11151,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "フォント"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "メニューで使用する別のメインフォントを選択します。"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "サイドバーを折りたたむ"
    )
@@ -11209,6 +11205,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "サムネイルバーのサイズの表示倍率です。"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "なし"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "通常"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "最大"
    )
 
 MSG_HASH(
@@ -13716,10 +13724,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "巻き戻しバッファの終わりに達しました。"
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "新しい設定を保存しました to"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

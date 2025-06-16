@@ -556,6 +556,10 @@ MSG_HASH(
    "Telepített mag zárolása"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_LOCK,
+   "A jelenleg telepített mag módosításának letiltása. Akkor hasznos, amikor a tartalom egy bizonyos mag verziót igényel (pl. arcade ROM készletek), vagy a mag saját játékállás mentési formátuma változik."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_SET_STANDALONE_EXEMPT,
    "Kihagyás a \"Tartalmat nem igénylő magok\" menüből"
    )
@@ -1553,6 +1557,10 @@ MSG_HASH(
    "Bemenet"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DRIVER,
+   "A használni kívánt bemeneti illesztőprogram. Egyes video-illesztőprogramok másik bemeneti illesztőprogramot kényszerítenek ki. (Újraindítás szükséges.)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
    "Az udev bemeneti illesztő a billentyűzet eseményeket evdev eseményként olvassa. Támogatja a billentyűzet callback-et, egeret és touchpadet.\nA legtöbb disztribúción a /dev/input bejegyzések csak root által használhatók (mode 600). Egy udev szabállyal ezeket nem-root felhasználók számára is elérhetővé lehet tenni."
    )
@@ -2103,7 +2111,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Vízszintes központosítás"
+   "Vízszintes középállás"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2111,11 +2119,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Szinkronvállak állítása"
+   "Vízszintes méret"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "A szinkronvállak különféle beállítása változtathat a képméreten."
+   "A különféle beállítások közt váltva változik a vízszintes képméret."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Függőleges középállás"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2642,10 +2654,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Adaptív VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "A VSync aktív, amíg a teljesítmény a megcélzott képfrissítés alá nem esik. Minimalizálja a döcögősséget, amikor a teljesítmény nem éri el a valós időt, és energiát takaríthat meg."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4341,7 +4349,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
-   "Turbó"
+   "Turbó mód"
    )
 
 /* Settings > Latency */
@@ -4908,6 +4916,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USE_LAST_START_DIRECTORY,
    "A Fájlböngésző az utoljára használt helyen nyílik meg a kezdő könyvtárból töltésnél. A RetroArch újraindításakor visszaáll az alapállapotra."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_SUGGEST_ALWAYS,
+   "Javasolt magok minden esetben"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_SUGGEST_ALWAYS,
+   "Az elérhető magok ajánlása akkor is, ha már egy mag be van töltve."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USE_BUILTIN_PLAYER,
@@ -6304,6 +6320,10 @@ MSG_HASH(
    "\"Beállítások\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_SETTINGS,
+   "A 'Beállítások' menü megjelenítése."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_SETTINGS_PASSWORD,
    "Jelszó beállítása a \"Beállítások\" engedélyezéséhez"
    )
@@ -6316,28 +6336,64 @@ MSG_HASH(
    "\"Kedvencek\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_FAVORITES,
+   "A 'Kedvencek' menü megjelenítése."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_FAVORITES_FIRST,
+   "'Kedvencek' megjelenítése elsőként"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_FAVORITES_FIRST,
+   "A 'Kedvencek' menü megjelenítése az 'Előzmények' előtt."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_IMAGES,
    "\"Képek\" látható"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_IMAGES,
+   "A 'Képek' menü megjelenítése."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_MUSIC,
    "\"Zenék\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_MUSIC,
+   "A 'Zenék' menü megjelenítése."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_VIDEO,
    "\"Filmek\" látható"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_VIDEO,
+   "A 'Videók' menü megjelenítése."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_NETPLAY,
    "\"Netplay\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_NETPLAY,
+   "A 'Netplay' menü megjelenítése."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_HISTORY,
    "\"Előzmények\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_HISTORY,
+   "Az előzményeket tartalmazó menü megjelenítése."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_ADD_ENTRY,
    "\"Tartalom importálása\" látható"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_ADD_ENTRY,
+   "A \"Tartalom importálása\" lehetőség jelenjen meg a főmenüben vagy a játéklisták almenüjében."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_ADD_CONTENT_ENTRY_DISPLAY_MAIN_TAB,
@@ -6360,12 +6416,24 @@ MSG_HASH(
    "Fülek a játéklistáknak"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_PLAYLIST_TABS,
+   "A játéklisták megjelenítése külön füleken. RGUI-ra nincs hatása. GLUI esetén a navigációs sávot be kell kapcsolni."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_EXPLORE,
    "\"Felfedezés\" látható"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_EXPLORE,
+   "A 'Felfedezés' menü jelenjen meg."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_CONTENTLESS_CORES,
    "\"Tartalmat nem igénylő magok\" látható"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_CONTENTLESS_CORES,
+   "A \"Tartalmat nem igénylő magok\" menüben megjelenő magok típusa. \"Egyedi\" esetben az egyes magok láthatóságát a \"Magok kezelése\" menüben lehet állítani."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_CONTENTLESS_CORES_ALL,
@@ -8952,12 +9020,20 @@ MSG_HASH(
    "Játékállás elmentése az éppen kiválasztott rekeszbe."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_SAVE_STATE,
+   "Játékállás elmentése az éppen kiválasztott rekeszbe. Figyelem: ezek az állapotmentések rendszerint nem hordozhatóak és ugyanezen mag más verziójával sem feltétlen működnek."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_STATE,
    "Játékállás betöltése"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOAD_STATE,
    "Játékállás betöltése az éppen kiválasztott rekeszből."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_LOAD_STATE,
+   "Játékállás betöltése az éppen kiválasztott rekeszből. Figyelem: nem feltétlenül működik, ha az állapot a mag egy másik verziójával volt lementve."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UNDO_LOAD_STATE,
@@ -11343,6 +11419,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Betűtípus"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Más betűtípus választása a menühöz."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Oldalsáv összecsukása"
    )
@@ -11389,6 +11473,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "A bélyegkép oszlop méretezése."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Nincs"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normál"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Maximális"
    )
 
 MSG_HASH(
@@ -13854,6 +13950,10 @@ MSG_HASH(
    "Visszatekerés."
    )
 MSG_HASH(
+   MSG_REWIND_BUFFER_CAPACITY_INSUFFICIENT,
+   "A visszatekerési puffer kapacitása elégtelen."
+   )
+MSG_HASH(
    MSG_REWIND_UNSUPPORTED,
    "Visszatekerés nem elérhető, ez a mag nem támogatja a soros formátumú játékállás mentést."
    )
@@ -13872,10 +13972,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "Visszatekerési puffer vége."
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "Új konfiguráció mentve ide"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,
@@ -14440,6 +14536,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_UNSUPPORTED_COUNT,
    "%d nem támogatott"
+)
+MSG_HASH(
+   MSG_CHEEVOS_UNSUPPORTED_WARNING,
+   "Nem támogatott trófeák észlelve. Másik mag vagy újabb RetroArch verzió ajánlott."
 )
 MSG_HASH(
    MSG_CHEEVOS_RICH_PRESENCE_SPECTATING,

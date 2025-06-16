@@ -1930,20 +1930,8 @@ MSG_HASH(
    "التبديل بين القرارات المحلية و الفائقة."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "مركز المحور x-axis"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "دورة من خلال هذه الخيارات إذا لم تكن الصورة تتركز بشكل صحيح على العرض."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "ضبط البورصة"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "دورة من خلال هذه الخيارات لضبط إعدادات الجزء لتغيير حجم الصورة."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -3050,6 +3038,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_RIGHT_Y_MINUS,
    "تناظري الأيمن Y-(أعلى)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "وضع توربو"
    )
 
 /* Settings > Latency */
@@ -6735,6 +6727,10 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "اختر خطا رئيسيا مغايرا ليستعمل في القائمة."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "قم بطي الشريط الجانبي"
    )
@@ -6757,6 +6753,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
    "عامل المقياس المصغرة"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "لاشيء"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "عادي"
    )
 
 MSG_HASH(
@@ -8888,10 +8892,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "وصلت إلى نهاية التجديد المؤقت."
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "تم حفظ الإعدادات الجديدة إلى"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

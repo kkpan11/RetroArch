@@ -647,6 +647,10 @@ MSG_HASH(
    "JIT disponible"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Identifiant du Bundle"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Identifiant de l'interface "
    )
@@ -1093,7 +1097,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_CURRENT_CONFIG,
-   "Sauvegarder la configuration actuelle"
+   "Enregistrer la configuration actuelle"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG,
@@ -1101,11 +1105,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_NEW_CONFIG,
-   "Sauvegarder une nouvelle configuration"
+   "Enregistrer une nouvelle configuration"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Enregistrer la configuration actuelle dans un fichier séparé."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Enregistrer la configuration sous"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Enregistrer la configuration actuelle dans un fichier de configuration personnalisé."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Enregistrer la configuration principale"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Enregistrer la configuration actuelle en tant que configuration principale."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2103,7 +2123,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centrage sur l'axe X "
+   "Centrage horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2111,11 +2131,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Ajustement de l'égalisation du balayage"
+   "Largeur"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Parcourez ces options pour ajuster les paramètres d'égalisation du balayage afin de modifier la taille de l'image."
+   "Parcourez ces options pour ajuster les réglages horizontaux afin de modifier la taille de l'image."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Centrage vertical"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2641,7 +2665,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "La synchronisation verticale (V-Sync) est activée jusqu'à ce que les performances descendent en dessous de la fréquence de rafraîchissement cible. Peut minimiser les saccades lorsque les performances sont inférieures au temps réel, et être plus économe en énergie."
+   "La synchronisation verticale (V-Sync) est activée jusqu'à ce que les performances descendent en dessous de la fréquence de rafraîchissement cible. Peut minimiser les saccades lorsque les performances sont inférieures au temps réel, et être plus économe en énergie'. Non compatible avec l'option 'Retard d'images'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4161,7 +4185,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_SAVE_AUTOCONFIG,
-   "Sauvegarder la configuration automatique"
+   "Enregistrer la configuration automatique"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_SAVE_AUTOCONFIG,
@@ -4314,6 +4338,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Croix pistolet Droite"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Tir turbo"
    )
 
 /* Settings > Latency */
@@ -4522,7 +4550,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONFIG_SAVE_ON_EXIT,
-   "Sauvegarder la configuration en quittant"
+   "Enregistrer la configuration en quittant"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONFIG_SAVE_ON_EXIT,
@@ -4582,7 +4610,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GLOBAL_CORE_OPTIONS,
-   "Sauvegarde tous les réglages de cœurs dans un fichier de configuration commun (retroarch-core-options.cfg). Si cette option est désactivée, les réglages de chaque cœur seront sauvegardés vers un dossier/fichier de configuration spécifique au cœur séparé dans le dossier 'Config' de RetroArch."
+   "Enregistre tous les réglages de cœurs dans un fichier de configuration commun (retroarch-core-options.cfg). Si cette option est désactivée, les réglages de chaque cœur seront sauvegardés vers un dossier/fichier de configuration spécifique au cœur séparé dans le dossier 'Config' de RetroArch."
    )
 
 /* Settings > Saving */
@@ -8296,7 +8324,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_SAVEFILE_DIRECTORY,
-   "Enregistrez tous les fichiers de sauvegarde (*.srm) dans ce dossier. Cela inclut les fichiers connexes comme .rt, .psrm, etc... Peut être remplacé par des options en ligne de commande explicites."
+   "Enregistrer tous les fichiers de sauvegarde (*.srm) dans ce dossier. Cela inclut les fichiers connexes comme .rt, .psrm, etc... Peut être remplacé par des options en ligne de commande explicites."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_DIRECTORY,
@@ -9155,11 +9183,11 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_CREATE,
-   "Sauvegarder les options pour le jeu"
+   "Enregistrer les options pour le jeu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GAME_SPECIFIC_CORE_OPTIONS_CREATE,
-   "Sauvegarder les options de cœur qui s'appliqueront uniquement pour le contenu actuel."
+   "Enregistrer les options de cœur qui s'appliqueront uniquement pour le contenu actuel."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
@@ -9171,11 +9199,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
-   "Sauvegarder les options pour le dossier du contenu"
+   "Enregistrer les options pour le dossier du contenu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
-   "Sauvegarder les options du cœur qui s'appliqueront à tout le contenu chargé à partir du même dossier que le fichier actuel."
+   "Enregistrer les options du cœur qui s'appliqueront à tout le contenu chargé à partir du même dossier que le fichier actuel."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_REMOVE,
@@ -9217,7 +9245,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_OPTIONS_IN_USE,
-   "Sauvegarder le fichier d'options pour le jeu"
+   "Enregistrer le fichier d'options pour le jeu"
    )
 
 /* Quick Menu > Controls */
@@ -9251,19 +9279,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_AS,
-   "Sauvegarder le fichier de remappage sous"
+   "Enregistrer le fichier de remappage sous"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_REMAP_FILE_SAVE_AS,
-   "Sauvegarder le mappage des touches actuel en tant que nouveau fichier de remappage."
+   "Enregistrer le mappage des touches actuel en tant que nouveau fichier de remappage."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CORE,
-   "Sauvegarder le remappage pour le cœur"
+   "Enregistrer le remappage pour le cœur"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_REMAP_FILE_SAVE_CORE,
-   "Sauvegarder un fichier de remappage qui s'appliquera à tout le contenu chargé avec ce cœur."
+   "Enregistrer un fichier de remappage qui s'appliquera à tout le contenu chargé avec ce cœur."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CORE,
@@ -9275,11 +9303,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CONTENT_DIR,
-   "Sauvegarder le remappage pour le dossier"
+   "Enregistrer le remappage pour le dossier"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_REMAP_FILE_SAVE_CONTENT_DIR,
-   "Sauvegarder un fichier de remappage qui s'appliquera à tout le contenu chargé à partir du même dossier que le fichier actuel."
+   "Enregistrer un fichier de remappage qui s'appliquera à tout le contenu chargé à partir du même dossier que le fichier actuel."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CONTENT_DIR,
@@ -9291,11 +9319,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_GAME,
-   "Sauvegarder le remappage pour le jeu"
+   "Enregistrer le remappage pour le jeu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_REMAP_FILE_SAVE_GAME,
-   "Sauvegarder un fichier de remappage qui s'appliquera uniquement pour le contenu actuel."
+   "Enregistrer un fichier de remappage qui s'appliquera uniquement pour le contenu actuel."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_GAME,
@@ -9937,19 +9965,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERRIDE_FILE_SAVE_AS,
-   "Sauvegarder les remplacements de configuration sous"
+   "Enregistrer les remplacements de configuration sous"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OVERRIDE_FILE_SAVE_AS,
-   "Sauvegarder la configuration actuelle comme un nouveau fichier de remplacement de configuration."
+   "Enregistrer la configuration actuelle comme un nouveau fichier de remplacement de configuration."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_CURRENT_CONFIG_OVERRIDE_CORE,
-   "Sauvegarder la configuration de substitution pour le cœur"
+   "Enregistrer la configuration de substitution pour le cœur"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG_OVERRIDE_CORE,
-   "Sauvegarder un fichier de configuration de substitution qui s'appliquera à tout le contenu chargé avec ce cœur. Aura la priorité sur la configuration principale."
+   "Enregistrer un fichier de configuration de substitution qui s'appliquera à tout le contenu chargé avec ce cœur. Aura la priorité sur la configuration principale."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMOVE_CURRENT_CONFIG_OVERRIDE_CORE,
@@ -9961,11 +9989,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_CURRENT_CONFIG_OVERRIDE_CONTENT_DIR,
-   "Sauvegarder la configuration de substitution pour le dossier"
+   "Enregistrer la configuration de substitution pour le dossier"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG_OVERRIDE_CONTENT_DIR,
-   "Sauvegarder un fichier de configuration de substitution qui s'appliquera à tout le contenu chargé depuis le même dossier que le fichier actuel. Aura la priorité sur la configuration principale."
+   "Enregistrer un fichier de configuration de substitution qui s'appliquera à tout le contenu chargé depuis le même dossier que le fichier actuel. Aura la priorité sur la configuration principale."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMOVE_CURRENT_CONFIG_OVERRIDE_CONTENT_DIR,
@@ -9977,11 +10005,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_CURRENT_CONFIG_OVERRIDE_GAME,
-   "Sauvegarder la configuration de substitution pour le jeu"
+   "Enregistrer la configuration de substitution pour le jeu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG_OVERRIDE_GAME,
-   "Sauvegarder un fichier de configuration de substitution qui s'appliquera uniquement au contenu actuel. Aura la priorité sur la configuration principale."
+   "Enregistrer un fichier de configuration de substitution qui s'appliquera uniquement au contenu actuel. Aura la priorité sur la configuration principale."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMOVE_CURRENT_CONFIG_OVERRIDE_GAME,
@@ -11559,6 +11587,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Police"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Sélectionner une police principale différente à utiliser pour le menu."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Réduire la barre latérale"
    )
@@ -11605,6 +11641,34 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Mettre à l'échelle la taille de la barre des miniatures."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Facteur de remplissage"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Mettre à l'échelle la taille du remplissage horizontal."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Séparateur d'en-tête"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Largeur alternative pour les séparateurs d'en-tête et de pied de page."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Ne pas partager"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normale"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Maximal"
    )
 
 MSG_HASH(
@@ -12367,7 +12431,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_SAVE,
-   "Sauvegarder"
+   "Enregistrer"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_REMOVE,
@@ -12713,11 +12777,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_PATH,
-   "Sauvegarder l'enregistrement sous..."
+   "Enregistrer l'enregistrement sous..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_USE_OUTPUT_DIRECTORY,
-   "Sauvegarder les enregistrements dans le dossier de sortie"
+   "Enregistrer les enregistrements dans le dossier de sortie"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_MATCH_IDX,
@@ -14163,7 +14227,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Nouvelle configuration enregistrée vers"
+   "Configuration enregistrée vers"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

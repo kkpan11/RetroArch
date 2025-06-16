@@ -655,6 +655,10 @@ MSG_HASH(
    "JIT доступно"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Ідентифікатор Комплекта"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Ідентифікатор зовнішнього інтерфейсу"
    )
@@ -1130,6 +1134,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Зберегти поточну конфігурацію в окремий файл."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Зберегти Конфігурацію Як"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Зберегти поточну конфігурацію як файл користувацької конфігурації."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Зберегти Основну Конфігурацію"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Зберегти поточну конфігурацію як основну конфігурацію."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2135,7 +2155,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Центрування по осі X"
+   "Горизонтальний центрування"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2143,11 +2163,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Корекція імпульсу"
+   "Горизонтальний розмір"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Оберіть значення, щоб налаштувати параметри імпульсу для зміни розміру зображення."
+   "Перемикання між цими варіантами, щоб змінити горизонтальні налаштування для зміни розміру зображення."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Вертикальне Центрування"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2681,7 +2705,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync буде увімкнено, поки продуктивність не знизиться за межі цільового курсу. Може мінімізувати заїкання, коли продуктивність падає нижче в режимі реального часу, і бути більш енергоефективною."
+   "VSync буде увімкнена, доки продуктивність не впаде нижче цільової частоти оновлення. Може зменшити затримки та ривки зображення, коли продуктивність падає нижче реального часу, а також бути більш енергоефективною. Несумісна з опцією 'Затримка Кадру'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4361,7 +4385,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
-   "Турбо"
+   "Турбо Кнопки"
    )
 
 /* Settings > Latency */
@@ -11659,6 +11683,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Шрифт"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Виберіть інший основний шрифт, який буде використовуватися в меню."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Згорнути бічну панель"
    )
@@ -11705,6 +11737,34 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Масштабувати розмір мініатюри (основного розміру)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Коефіцієнт Відступу"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Масштабувати розмір горизонтального відступу."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Роздільник Заголовка"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Альтернативна ширина для роздільників верхнього та нижнього колонтитулів."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Немає"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Звичайний"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Максимальний"
    )
 
 MSG_HASH(
@@ -14299,7 +14359,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Збережено нову конфігурацію в"
+   "Конфігурацію збережено у"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

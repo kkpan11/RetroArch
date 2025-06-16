@@ -2078,20 +2078,8 @@ MSG_HASH(
    "Přepínejte mezi nativním a ultraširokým super rozlišením."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centrování osy-X"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "Pokud není obraz na displeji správně vycentrován, projděte tyto možnosti."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Úprava skenování obrazu"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Projděte těmito možnostmi a upravte nastavení verandy pro změnu velikosti obrázku."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2598,10 +2586,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Adaptivní VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "Funkce VSync je povolena, dokud výkon neklesne pod cílovou obnovovací frekvenci. Může minimalizovat zadrhávání při poklesu výkonu pod reálný čas a být energeticky úspornější."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4254,6 +4238,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Zbraň D-Pad Vpravo"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo střelba"
    )
 
 /* Settings > Latency */
@@ -11383,6 +11371,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Písmo"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Vyberte jiné hlavní písmo, které má být použito v nabídce."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Sbalení bočního panelu"
    )
@@ -11429,6 +11425,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Měřítko velikosti panelu miniatur."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Žádné"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normální"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Maximální"
    )
 
 MSG_HASH(
@@ -13992,10 +14000,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "Dosažen konec vyrovnávací paměti pro převíjení."
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "Nová konfigurace byla uložena do"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

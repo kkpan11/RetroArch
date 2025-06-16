@@ -114,6 +114,8 @@ typedef struct settings
       int replay_slot;
       int crt_switch_center_adjust;
       int crt_switch_porch_adjust;
+      int crt_switch_vertical_adjust;
+      int video_max_frame_latency;
 #ifdef HAVE_VULKAN
       int vulkan_gpu_index;
 #endif
@@ -246,7 +248,6 @@ typedef struct settings
       unsigned video_scale_integer_axis;
       unsigned video_scale_integer_scaling;
       unsigned video_max_swapchain_images;
-      unsigned video_max_frame_latency;
       unsigned video_swap_interval;
       unsigned video_hard_sync_frames;
       unsigned video_frame_delay;
@@ -304,6 +305,7 @@ typedef struct settings
       unsigned menu_materialui_thumbnail_view_landscape;
       unsigned menu_materialui_landscape_layout_optimization;
       unsigned menu_ozone_color_theme;
+      unsigned menu_ozone_header_separator;
       unsigned menu_font_color_red;
       unsigned menu_font_color_green;
       unsigned menu_font_color_blue;
@@ -416,6 +418,7 @@ typedef struct settings
       float menu_ticker_speed;
       float menu_rgui_particle_effect_speed;
       float menu_screensaver_animation_speed;
+      float ozone_padding_factor;
       float ozone_thumbnail_scale_factor;
 
       float cheevos_appearance_padding_h;
@@ -575,6 +578,7 @@ typedef struct settings
       char bundle_assets_src[PATH_MAX_LENGTH];
       char bundle_assets_dst[PATH_MAX_LENGTH];
       char path_menu_xmb_font[PATH_MAX_LENGTH];
+      char path_menu_ozone_font[PATH_MAX_LENGTH];
       char path_cheat_database[PATH_MAX_LENGTH];
       char path_content_database[PATH_MAX_LENGTH];
       char path_overlay[PATH_MAX_LENGTH];

@@ -635,6 +635,10 @@ MSG_HASH(
    "JIT disponível"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Identificador do Pacote"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Identificador da interface"
    )
@@ -1110,6 +1114,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Salva a configuração atual em um arquivo separado."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Salvar Configuração Como"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Salvar a configuração atual como arquivo de configuração personalizado."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Salvar Configuração Principal"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Salvar a configuração atual como configuração principal."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2091,7 +2111,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centralização do eixo-X"
+   "Centralização Horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2099,11 +2119,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Ajustar pórtico"
+   "Tamanho Horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Percorra essas opções para ajustar as configurações de pórtico e alterar o tamanho da imagem."
+   "Percorra essas opções para ajustar as configurações horizontais e alterar o tamanho da imagem."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Centralização Vertical"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2570,10 +2594,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Vsync adaptativo"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "A sincronização vertical está ativada até que o desempenho caia abaixo da taxa de atualização alvo. Pode minimizar os travamentos quando o desempenho cai abaixo do tempo real e seja mais eficiente em termos de energia."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -3468,7 +3488,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_DISK_EJECT_TOGGLE,
-   "Ejetar Disco (comando)"
+   "Ejetar Disco (Alternar)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_DISK_EJECT_TOGGLE,
@@ -3476,7 +3496,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_DISK_NEXT,
-   "Próximo disco"
+   "Próximo Disco"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_DISK_NEXT,
@@ -3484,7 +3504,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_DISK_PREV,
-   "Disco anterior"
+   "Disco Anterior"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_DISK_PREV,
@@ -3729,7 +3749,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DEVICE_TYPE,
-   "Tipo de dispositivo"
+   "Tipo de Dispositivo"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ADC_TYPE,
@@ -3737,7 +3757,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DEVICE_INDEX,
-   "Índice de dispositivo"
+   "Índice de Dispositivo"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DEVICE_RESERVATION_PREFERRED,
@@ -3906,6 +3926,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Direcional digital direito da pistola"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Modo Turbo"
    )
 
 /* Settings > Latency */
@@ -4586,11 +4610,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONSCREEN_VIDEO_LAYOUT_SETTINGS,
-   "Disposição de vídeo"
+   "Layout de Vídeo"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ONSCREEN_VIDEO_LAYOUT_SETTINGS,
-   "Ajusta a disposição de vídeo."
+   "Ajustar Layout de Vídeo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONSCREEN_NOTIFICATIONS_SETTINGS,
@@ -10211,6 +10235,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Fonte"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Selecione uma fonte principal diferente para ser usada pelo menu."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Recolher a barra lateral"
    )
@@ -10249,6 +10281,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Altera o tamanho da barra de miniaturas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Fator de Preenchimento"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Ajustar o tamanho do preenchimento horizontal."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Separador de Cabeçalho"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Largura alternativa para os separadores de cabeçalho e rodapé."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Nenhum"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Máximo"
    )
 
 MSG_HASH(
@@ -12695,7 +12751,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Salvado em"
+   "Configuração salva em"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

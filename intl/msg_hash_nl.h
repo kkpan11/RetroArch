@@ -1722,20 +1722,8 @@ MSG_HASH(
    "Schakel tussen native en ultrabrede superresoluties."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "X-As Centering"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "Blader door deze opties als de afbeelding niet goed op het scherm is gecentreerd."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "TV-Veranda Aanpassen"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Doorloop deze opties om de veranda-instellingen aan te passen om de afbeeldingsgrootte te wijzigen."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_HIRES_MENU,
@@ -2130,10 +2118,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Adaptieve VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "V-Sync is ingeschakeld totdat de prestaties onder de doelvernieuwingsfrequentie komen. Kan stotteren minimaliseren wanneer de prestaties onder realtime vallen en kan energiezuiniger zijn."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_AUTO,
@@ -3390,6 +3374,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Wapen D-Pad Rechts"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo-vuur"
    )
 
 /* Settings > Latency */
@@ -5786,6 +5774,14 @@ MSG_HASH(
 
 /* Ozone: Settings > User Interface > Appearance */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Geen"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normaal"
+   )
 
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,

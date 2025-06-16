@@ -651,6 +651,10 @@ MSG_HASH(
    "JIT disponible"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Identificador de paquete"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Identificador del front-end"
    )
@@ -1126,6 +1130,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Guarda la configuración actual en un archivo aparte."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Guardar configuración como..."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Guarda la configuración actual en un archivo de configuración personalizada."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Guardar configuración principal"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Guarda la configuración actual en la principal."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2127,7 +2147,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centrado del eje X"
+   "Centrado horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2135,11 +2155,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Ajuste de pórticos"
+   "Tamaño horizontal"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Modifica este ajuste para alterar la configuración de los pórticos y cambiar el tamaño de la imagen."
+   "Modifica este ajuste para alterar la configuración horizontal y cambiar el tamaño de la imagen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Centrado vertical"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2272,7 +2296,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
-   "Umbral de frecuencia de actualización PAL"
+   "Umbral de cambio de frecuencia de actualización a PAL"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
@@ -2479,7 +2503,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_CONFIG,
-   "Configuración"
+   "Configurable"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_CORE_PROVIDED,
@@ -2487,7 +2511,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_CUSTOM,
-   "Personalizado"
+   "Personalizada"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_FULL,
@@ -2509,7 +2533,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_X,
-   "Desplazamiento personalizado para definir la posición en el eje X del área de visualización."
+   "Establece la compensación personalizada con la que se definirá la posición en el eje X del área de visualización."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
@@ -2517,7 +2541,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Desplazamiento personalizado para definir la posición en el eje Y del área de visualización."
+   "Establece la compensación personalizada con la que se definirá la posición en el eje Y del área de visualización."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VIDEO_VIEWPORT_BIAS_X,
@@ -2665,7 +2689,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "La sincronía vertical se mantendrá activada hasta que el rendimiento sea inferior al necesario para mantener la frecuencia de actualización de la pantalla. Puede reducir los tirones provocados al caer el rendimiento por debajo de la velocidad real y mejorar la eficiencia energética."
+   "La sincronía vertical se mantendrá activada hasta que el rendimiento sea inferior al necesario para mantener la frecuencia de actualización de la pantalla. Puede reducir los tirones provocados al caer el rendimiento por debajo de la velocidad real y mejorar la eficiencia energética. Esta opción no es compatible con el retraso de fotogramas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -2689,7 +2713,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_FRAME_DELAY_AUTO,
-   "Intenta mantener el retraso de fotogramas objetivo y minimizar los fotogramas perdidos. Si el retraso de fotogramas está establecido en 0 (automático), el punto de partida será de 3/4 partes de la duración de fotogramas."
+   "Intenta mantener el retraso de fotogramas objetivo y minimizar la pérdida de fotogramas. Si el retraso de fotogramas es 0 (automático), el punto de partida será un 75 % de la duración de fotogramas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_AUTOMATIC,
@@ -2810,7 +2834,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_RESPECT_SILENT_MODE,
-   "Silencia el audio al usar el modo en silencio."
+   "Silencia todo el audio si el modo en silencio está activado."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_MUTE,
@@ -2937,7 +2961,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_LATENCY,
-   "La latencia máxima del audio en milisegundos. El controlador intentará mantener la latencia real en un 50 % de este valor. El valor podría no ser respetado si el controlador de audio no puede producir dicha latencia."
+   "Establece la latencia máxima del audio en milisegundos. El controlador intentará mantener la latencia real en un 50 % de este valor. Puede que este no se respete si el controlador de audio no puede producir la latencia establecida."
    )
 
 #ifdef HAVE_MICROPHONE
@@ -3105,7 +3129,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_MIXER_STREAM,
-   "Señal %d de mezclador: %s"
+   "Canal %d del mezclador: %s"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY,
@@ -3243,7 +3267,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_REMAP_SORT_BY_CONTROLLER_ENABLE,
-   "Las reasignaciones se aplicarán únicamente al mando activo en el que se hayan guardado."
+   "Las reasignaciones se aplicarán únicamente al mando activo que se haya usado para guardarlas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTODETECT_ENABLE,
@@ -3384,7 +3408,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_ENABLE,
-   "Al desactivar esta opción, se detendrán todas las opciones del modo turbo/autodisparo/«autofire»."
+   "Al desactivar esta opción, se detendrán todas las operaciones del modo turbo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_PERIOD,
@@ -3432,35 +3456,35 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_CLASSIC,
-   "Modo de manejo clásico de dos botones. Mantén pulsado un botón y pulsa a la vez el botón de turbo para activar la secuencia de pulsación y liberación.\nEl turbo puede asignarse en Ajustes/Entrada/Controles del puerto X."
+   "Modo clásico con dos botones. Mantén pulsado un botón y pulsa a la vez el botón de turbo para activar la secuencia de pulsación y liberación.\nLa asignación del botón de turbo puede cambiarse en Ajustes/Entrada/Controles del puerto X."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_CLASSIC_TOGGLE,
-   "Manejo clásico de dos botones. Mantén pulsado un botón y pulsa a la vez el botón de turbo para activar su modo turbo. Desactivar turbo: mantén pulsado el botón y vuelve a pulsar el botón de turbo.\nEl turbo puede asignarse en Ajustes/Entrada/Controles del puerto X."
+   "Modo clásico de alternancia con dos botones. Mantén pulsado un botón y pulsa a la vez el botón de turbo para activar su modo turbo. Desactivar turbo: mantén pulsado el botón y vuelve a pulsar el botón de turbo.\nLa asignación del botón de turbo puede cambiarse en Ajustes/Entrada/Controles del puerto X."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_SINGLEBUTTON,
-   "Modo de alternancia. Pulsa el botón de turbo una vez para activar la secuencia de pulsación y liberación del botón predeterminado seleccionado y vuelve a pulsar el botón de turbo para desactivarlo.\nEl turbo puede asignarse en Ajustes/Entrada/Controles del puerto X."
+   "Modo de alternancia. Pulsa el botón de turbo una vez para activar la secuencia de pulsación y liberación del botón predeterminado seleccionado y vuelve a pulsar el botón de turbo para desactivarlo.\nLa asignación del botón de turbo puede cambiarse en Ajustes/Entrada/Controles del puerto X."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_SINGLEBUTTON_HOLD,
-   "Modo de mantener pulsado el botón. La secuencia de pulsación y liberación para el botón predeterminado seleccionado se mantendrá activa siempre y cuando se mantenga pulsado el botón de turbo.\nEl turbo puede asignarse en Ajustes/Entrada/Controles del puerto X.\nSi deseas emular el método de autodisparo/«autofire» de la época de los PC domésticos, asigna los botones de turbo y predeterminado para que sean el mismo que el botón de disparo del mando."
+   "Modo de pulsación mantenida. La secuencia de pulsación y liberación para el botón predeterminado seleccionado se mantendrá activa siempre y cuando se mantenga pulsado el botón de turbo.\nLa asignación del botón de turbo puede cambiarse en Ajustes/Entrada/Controles del puerto X.\nSi deseas emular el método de autodisparo/«autofire» de la época de los PC domésticos, configura la asignación y el botón con turbo para que sean el mismo que el botón de disparo del mando."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_BIND,
-   "Asignación de turbo"
+   "Asignación del turbo"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_BIND,
-   "La asignación que activará el turbo en el RetroPad. Si está en blanco, se utilizará la asignación específica del puerto."
+   "La asignación que activará el turbo en el RetroPad. Si se deja en blanco, se utilizará la asignación específica del puerto."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_BUTTON,
-   "Botón de turbo"
+   "Botón con turbo"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_BUTTON,
-   "El botón que se usará para el turbo en el modo de botón dedicado."
+   "El botón al que se aplicará el turbo en el modo de botón dedicado."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_ALLOW_DPAD,
@@ -3468,7 +3492,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_ALLOW_DPAD,
-   "Permite que los botones digitales de dirección (también conocidos como la cruceta o «seta») puedan usar el modo turbo."
+   "Permite que los botones digitales de dirección (también conocidos como cruceta, seta...) puedan usar el modo turbo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_FIRE_SETTINGS,
@@ -3578,7 +3602,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_DISABLE_INFO_BUTTON,
-   "Evita que aparezca la opción Información en el menú."
+   "Evita que se invoque la ventana de información dentro del menú."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_SEARCH_BUTTON,
@@ -3586,7 +3610,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_DISABLE_SEARCH_BUTTON,
-   "Evita que aparezca la opción Buscar en el menú."
+   "Evita que se invoque la ventana de búsqueda dentro del menú."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_LEFT_ANALOG_IN_MENU,
@@ -3657,7 +3681,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_HOTKEY_DEVICE_MERGE,
-   "Bloquea todas las teclas rápidas de los teclados y mandos si cualquiera de los dos tipos de dispositivo tiene un botón o tecla asignados para activar las teclas rápidas."
+   "Bloquea todas las teclas rápidas de los teclados y mandos si cualquiera de los dos tiene una asignación para activar las teclas rápidas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MENU_ENUM_TOGGLE_GAMEPAD_COMBO,
@@ -3971,11 +3995,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_TURBO_FIRE_TOGGLE,
-   "Pulsación turbo (alternar)"
+   "Turbo (alternar)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_TURBO_FIRE_TOGGLE,
-   "Activa o desactiva el modo de disparo turbo/autodisparo/«autofire»."
+   "Activa o desactiva el modo turbo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_GRAB_MOUSE_TOGGLE,
@@ -4153,11 +4177,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_DEVICE_RESERVED_DEVICE_NAME,
-   "Este mando será asignado a este jugador siguiendo el modo de reserva."
+   "Este mando será asignado a este jugador siguiendo el tipo de reserva."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DEVICE_RESERVATION_NONE,
-   "No reservar nada"
+   "No reservar"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DEVICE_RESERVATION_PREFERRED,
@@ -4189,7 +4213,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_BIND_ALL,
-   "Asigna todas las direcciones y botones en el orden que aparezcan en este menú, uno tras otro."
+   "Asigna todas las direcciones y botones en el orden en el que aparecen en este menú, uno detrás de otro."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_BIND_DEFAULT_ALL,
@@ -4205,7 +4229,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_SAVE_AUTOCONFIG,
-   "Guarda un archivo de autoconfiguración que se aplicará de forma automática cada vez que se vuelva a detectar este mando."
+   "Guarda un archivo de autoconfiguración que se aplicará automáticamente cada vez que se vuelva a detectar este mando."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_INDEX,
@@ -4217,11 +4241,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_B,
-   "Botón B (abajo)"
+   "Botón B (inferior)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_Y,
-   "Botón Y (izquierda)"
+   "Botón Y (izquierdo)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_SELECT,
@@ -4249,11 +4273,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_A,
-   "Botón A (derecha)"
+   "Botón A (derecho)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_X,
-   "Botón X (arriba)"
+   "Botón X (superior)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_L,
@@ -4355,6 +4379,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Arma: Cruceta derecha"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo"
+   )
 
 /* Settings > Latency */
 
@@ -4380,12 +4408,12 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RUNAHEAD_MODE,
-   "Ejecuta lógicas adicionales del núcleo para reducir la latencia. Una instancia ejecuta la lógica hasta un fotograma futuro y luego vuelve a cargar el estado actual. Doble instancia mantiene activa una instancia del núcleo solo para vídeo en un fotograma futuro para evitar problemas con el estado del audio. Fotogramas preventivos ejecuta los fotogramas pasados con acciones de entrada nuevas cuando sean necesarios para mejorar la eficacia."
+   "Ejecuta lógicas adicionales del núcleo para reducir la latencia. El modo de una instancia ejecuta la lógica hasta un fotograma futuro y luego vuelve a cargar el estado actual. El modo de doble instancia mantiene activa una instancia del núcleo solo para la señal de vídeo en un fotograma futuro para evitar problemas con el estado del audio. El modo de fotogramas preventivos ejecuta los fotogramas pasados con acciones de entrada nuevas cuando sean necesarias para mejorar la eficacia."
    )
 #if !(defined(HAVE_DYNAMIC) || defined(HAVE_DYLIB))
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RUNAHEAD_MODE_NO_SECOND_INSTANCE,
-   "Ejecuta lógicas adicionales del núcleo para reducir la latencia. Una instancia ejecuta la lógica hasta un fotograma futuro y luego vuelve a cargar el estado actual. Fotogramas preventivos ejecuta los fotogramas pasados con acciones de entrada nuevas cuando sean necesarios para mejorar la eficacia."
+   "Ejecuta lógicas adicionales del núcleo para reducir la latencia. El modo de una instancia ejecuta la lógica hasta un fotograma futuro y luego vuelve a cargar el estado actual. El modo de fotogramas preventivos ejecuta los fotogramas pasados con acciones de entrada nuevas cuando sean necesarias para mejorar la eficacia."
    )
 #endif
 MSG_HASH(
@@ -4481,7 +4509,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_BYPASS,
-   "Omitir la información del núcleo sobre guardados rápidos"
+   "Ignorar la información del núcleo sobre guardados rápidos"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_INFO_SAVESTATE_BYPASS,
@@ -4931,7 +4959,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_SUGGEST_ALWAYS,
-   "Sugiere los núcleos disponbles, aunque haya otro ya cargado."
+   "Sugiere los núcleos disponibles, aunque haya otro ya cargado."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USE_BUILTIN_PLAYER,
@@ -5320,7 +5348,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OVERLAY_AUTOLOAD_PREFERRED,
-   "Da preferencia a la carga de superposiciones según el nombre del sistema en vez de utilizar el preajuste predeterminado como respaldo. Esta opción se ignorará si se ha establecido una personalización para el preajuste de superposiciones."
+   "Carga primero las superposiciones según el nombre del sistema antes de utilizar el preajuste predeterminado como respaldo. Esta opción se ignorará si se ha establecido una personalización para el preajuste de superposiciones."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_OPACITY,
@@ -5444,7 +5472,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_POINTER_ENABLE,
-   "Activar superposición para «lightguns», ratón y punteros"
+   "Activar superposiciones de «lightguns», ratón y punteros"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OVERLAY_POINTER_ENABLE,
@@ -5452,15 +5480,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_LIGHTGUN_SETTINGS,
-   "«Lightgun» mediante la superposición"
+   "Superposición de «lightgun»"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OVERLAY_LIGHTGUN_SETTINGS,
-   "Configura las acciones de entrada de «lightguns» enviadas a través de la superposición."
+   "Configura las acciones de entrada de «lightguns» transmitidas por la superposición."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_MOUSE_SETTINGS,
-   "Ratón mediante la superposición"
+   "Superposición de ratón"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OVERLAY_MOUSE_SETTINGS,
@@ -5483,7 +5511,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OSK_OVERLAY_AUTO_SCALE,
-   "Ajusta la superposición de teclado a su relación de aspecto original. Desactiva esta opción para estirarla por toda la pantalla."
+   "Ajusta la superposición de teclado respetando su relación de aspecto original. Desactiva esta opción para estirarla por toda la pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_OPACITY,
@@ -5491,7 +5519,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OSK_OVERLAY_OPACITY,
-   "Controla la opacidad de todos los elementos de la superposición de teclado."
+   "Establece la opacidad de todos los elementos de la superposición de teclado."
    )
 
 /* Settings > On-Screen Display > On-Screen Overlay > Overlay Lightgun */
@@ -5514,7 +5542,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OVERLAY_LIGHTGUN_TRIGGER_ON_TOUCH,
-   "Envía una señal del gatillo junto con la del puntero."
+   "Envía una señal del gatillo junto con la acción de entrada del puntero."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_TRIGGER_DELAY,
@@ -5522,7 +5550,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OVERLAY_LIGHTGUN_TRIGGER_DELAY,
-   "Retrasa las acciones de entrada del gatillo para dar un margen de tiempo al cursor para que pueda desplazarse. Este retraso también sirve para contabilizar correctamente una acción táctil de varios dedos."
+   "Retrasa las acciones de entrada del gatillo para que el cursor tenga un margen de tiempo para desplazarse. Este retraso también sirve para contabilizar correctamente una acción táctil de varios dedos."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_TWO_TOUCH_INPUT,
@@ -5581,7 +5609,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OVERLAY_MOUSE_HOLD_MSEC,
-   "Ajusta el tiempo que debes mantener pulsada la pantalla para reconocer una pulsación larga."
+   "Ajusta el tiempo en el que se debe mantener pulsada la pantalla para reconocer una pulsación larga."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_MOUSE_DTAP_TO_DRAG,
@@ -5903,7 +5931,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FONT_SIZE,
-   "Especifica el tamaño de la fuente en puntos. Cuando se utilicen los widgets, el tamaño solo se aplicará a las estadísticas en pantalla."
+   "Especifica el tamaño de la fuente en puntos. Cuando se utilicen los widgets, este valor solo se aplicará a las estadísticas en pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_POS_X,
@@ -7027,7 +7055,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_REMEMBER_SELECTION,
-   "Recuerda la última posición del cursor en cada sección. En RGUI, las listas de reproducción y los ajustes tendrán el mismo comportamiento."
+   "Recuerda la última posición del cursor en cada sección. En RGUI esto afectará a las listas de reproducción y los ajustes."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION_ALWAYS,
@@ -7885,7 +7913,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SCAN_SERIAL_AND_CRC,
-   "En ocasiones las ISO contienen números de serie duplicados, sobre todo los títulos de PSP/PSN. Al depender únicamente del número de serie, en ocasiones el buscador podría ubicar contenidos en el sistema equivocado. Esta opción añade una comprobación mediante sumas de verificación CRC, lo que ralentizará considerablemente la búsqueda, pero hará que sea más precisa."
+   "En ocasiones las ISO contienen números de serie duplicados, sobre todo los títulos de PSP/PSN. Si se depende únicamente del número de serie, el buscador podría asignar contenidos al sistema equivocado. Esta opción añade una comprobación mediante sumas de verificación CRC, lo que ralentizará considerablemente la búsqueda, pero hará que sea más precisa."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LIST,
@@ -10104,7 +10132,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
-   "El servidor de RetroAchievements no está disponible"
+   "No se encuentra el servidor de RetroAchievements"
 )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
@@ -11583,6 +11611,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Fuente"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Selecciona el tipo de letra usado en el menú."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Ocultar barra lateral"
    )
@@ -11630,6 +11666,30 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Cambia el tamaño de la barra de miniaturas."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Factor de espaciado"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Cambia la escala del espaciado horizontal."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Separador del encabezado"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Indica un ancho alternativo para los separadores del encabezado y del pie de página."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "No compartir"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Valor máximo"
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
@@ -11665,7 +11725,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_DARK,
-   "Solarized (oscuro)"
+   "Solarizado (oscuro)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_LIGHT,
@@ -11848,7 +11908,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME_SOLARIZED_DARK,
-   "Solarized (oscuro)"
+   "Solarizado (oscuro)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME_CUTIE_BLUE,
@@ -12339,7 +12399,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ADD_FILES,
-   "Agregar archivo(s)..."
+   "Agregar archivos..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ADD_FOLDER,
@@ -13607,7 +13667,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_COULD_NOT_READ_MOVIE_HEADER,
-   "No se puede leer la cabecera de la repetición."
+   "No se puede leer el encabezado de la repetición."
    )
 MSG_HASH(
    MSG_COULD_NOT_READ_STATE_FROM_MOVIE,
@@ -13615,7 +13675,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_CRC32_CHECKSUM_MISMATCH,
-   "El CRC32 del contenido no concuerda con el de la cabecera de la repetición. Es muy probable que la repetición no se muestre sincronizada."
+   "El CRC32 del contenido no concuerda con el del encabezado de la repetición. Es muy probable que la repetición no se muestre sincronizada."
    )
 MSG_HASH(
    MSG_CUSTOM_TIMING_GIVEN,
@@ -14203,7 +14263,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Se ha guardado una nueva configuración en"
+   "Se ha guardado la configuración en"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,
@@ -15645,7 +15705,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_3DS_BOTTOM_MENU_ASSET_NOT_FOUND,
-   "Recurso(s) no encontrado(s)"
+   "Recursos no encontrados"
    )
 MSG_HASH(
    MSG_3DS_BOTTOM_MENU_NO_STATE_DATA,

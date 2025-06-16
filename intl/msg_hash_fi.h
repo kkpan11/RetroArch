@@ -1116,6 +1116,22 @@ MSG_HASH(
    "Tallenna nykyinen kokoonpano erilliseen tiedostoon."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Tallenna kokoonpano nimellä"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Tallenna nykyinen kokoonpano mukautettuna asetustiedostona."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Tallenna pääasiallinen kokoonpano"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Tallenna nykyinen kokoonpano pääasiallisena asetustiedostona."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
    "Palauta oletusarvot"
    )
@@ -1978,20 +1994,8 @@ MSG_HASH(
    "Vaihda natiivin ja ultraleveän superresoluution välillä."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "X-akselin keskitys"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
    "Vaihdä tätä asetusta, jos kuva ei ole keskitetty oikein näytöllä."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Säädä porch"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Selaa näitä asetuksia, jotta voit säätää porch-asetuksia kuvan koon muuttamiseksi."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2418,10 +2422,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Mukautuva VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync on käytössä, kunnes suorituskyky laskee tavoitellun virkistysnopeuden alapuolelle. Voi vähentää nykimistä, kun suorituskyky laskee reaaliajan alapuolelle ja on energiatehokkaampi."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_AUTO,
@@ -3738,6 +3738,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Pyssy. ristiohjain oikea"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbotulitus"
    )
 
 /* Settings > Latency */
@@ -10291,6 +10295,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Fontti"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Valitse eri fontti valikossa käytettäväksi."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Piilota sivupalkki"
    )
@@ -10329,6 +10341,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Skaalaa esikatselukuvien palkin koko."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Ei mitään"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normaali"
    )
 
 MSG_HASH(
@@ -12859,7 +12879,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Uusi asetus tallennettu kansioon"
+   "Tallennettu asetustiedostoon"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

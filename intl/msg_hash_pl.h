@@ -2079,7 +2079,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "Centrowanie osi X"
+   "Wyśrodkowanie poziome"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2087,11 +2087,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Proporcja werandy CRT"
+   "Rozmiar poziomy"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Przełączaj między tymi opcjami, aby dostosować ustawienia werandy, aby zmienić rozmiar obrazu."
+   "Przebiegnij przez te opcje, aby dostosować ustawienia poziome, aby zmienić rozmiar obrazu."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2554,10 +2554,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
    "Adaptacyjna VSync"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync jest włączony, dopóki wydajność nie spadnie poniżej docelowej szybkości odświeżania. Można zminimalizować stłuczenie, gdy wydajność spadnie poniżej czasu rzeczywistego, i być bardziej energooszczędna."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -3806,6 +3802,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Pistolet D-pad prawo"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo Ogień"
    )
 
 /* Settings > Latency */
@@ -10019,6 +10019,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Czcionka"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Wybierz inną główną czcionkę, która ma być używana w menu."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Zwiń pasek boczny"
    )
@@ -10057,6 +10065,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Współczynnik skali miniatur"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Skaluj rozmiar poziomego wypełniania."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Separator nagłówka"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Alternatywna szerokość dla separatorów nagłówka i stopki."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Brak"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NORMAL,
+   "Normalne"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Maksimum"
    )
 
 MSG_HASH(
@@ -12508,10 +12540,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_REWIND_REACHED_END,
    "Osiągnięto koniec bufora przewijania."
-   )
-MSG_HASH(
-   MSG_SAVED_NEW_CONFIG_TO,
-   "Zapisano nową konfigurację do"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

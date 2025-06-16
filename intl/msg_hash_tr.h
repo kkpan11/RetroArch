@@ -647,6 +647,10 @@ MSG_HASH(
    "JIT Mevcut"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BUNDLE_IDENTIFIER,
+   "Paket Tanımlayıcı"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
    "Ön Uç Tanımlayıcı"
    )
@@ -1122,6 +1126,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
    "Mecvut yapılandırmayı ayrı bir dosyaya kaydedin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_AS_CONFIG,
+   "Yapılandırmayı Farklı Kaydet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_AS_CONFIG,
+   "Mevcut yapılandırmayı özel yapılandırma dosyası olarak kaydet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVE_MAIN_CONFIG,
+   "Ana Yapılandırmayı Kaydet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVE_MAIN_CONFIG,
+   "Mevcut yapılandırmayı ana yapılandırma olarak kaydet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
@@ -2119,7 +2139,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
-   "X-Yönünde Merkezleme"
+   "Yatay Merkezleme"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
@@ -2127,11 +2147,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Sundurma Ayarı"
+   "Yatay Boyut"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Görüntü boyutunu değiştirmek için sundurma ayarlarını yapmak için bu seçenekler arasında dolaşın."
+   "Görüntü boyutunu değiştirmek için yatay ayarları düzenlemek üzere bu seçenekler arasında geçiş yapın."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_VERTICAL_ADJUST,
+   "Dikey Merkezleme"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -2661,7 +2685,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "V-Sync, performans hedef yenileme hızının altına düşene kadar etkinleştirilir. Performans gerçek zamanın altına düştüğünde aksaklığı en aza indirebilir ve daha enerji tasarruflu olabilir."
+   "VSync, performans hedef yenileme hızının altına düşene kadar etkindir. Performans gerçek zamanın altına düştüğünde kekemeliği en aza indirebilir ve daha fazla enerji tasarrufu sağlayabilir. 'Kare Gecikmesi' ile uyumlu değildir."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -4354,6 +4378,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
    "Silah D-Pad Sağ"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO,
+   "Turbo Ateş"
    )
 
 /* Settings > Latency */
@@ -11651,6 +11679,14 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_FONT,
+   "Yazı Tipi"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_FONT,
+   "Menü tarafından kullanılacak farklı bir ana yazı tipi seç."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
    "Kenar Çubuğunu Daralt"
    )
@@ -11697,6 +11733,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Küçük resim çubuğunun boyutunu ölçeklendirin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_PADDING_FACTOR,
+   "Dolgu Etkeni"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_PADDING_FACTOR,
+   "Yatay dolgu boyutunu ölçeklendirin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR,
+   "Başlık Ayırıcı"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_HEADER_SEPARATOR,
+   "Üstbilgi ve altbilgi ayırıcıları için alternatif genişlik."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_NONE,
+   "Yok"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_HEADER_SEPARATOR_MAXIMUM,
+   "Azami"
    )
 
 MSG_HASH(
@@ -14291,7 +14351,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_NEW_CONFIG_TO,
-   "Yeni yapılandırma kaydedildi"
+   "Yapılandırma kaydedildi"
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,

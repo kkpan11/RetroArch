@@ -49,6 +49,10 @@
 #include <process.h>
 #endif
 
+#if defined(WEBOS)
+#include <sys/resource.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -324,6 +328,7 @@ struct rarch_state
    char path_libretro[PATH_MAX_LENGTH];
    char path_libretro_last[PATH_MAX_LENGTH];
    char path_config_file[PATH_MAX_LENGTH];
+   char path_config_default_file[PATH_MAX_LENGTH];
    char path_config_append_file[PATH_MAX_LENGTH];
    char path_config_override_file[PATH_MAX_LENGTH];
    char path_core_options_file[PATH_MAX_LENGTH];
@@ -2411,6 +2416,10 @@ char *path_get_ptr(enum rarch_path_type type)
          if (!path_is_empty(RARCH_PATH_CONFIG))
             return p_rarch->path_config_file;
          break;
+      case RARCH_PATH_CONFIG_DEFAULT:
+         if (!path_is_empty(RARCH_PATH_CONFIG_DEFAULT))
+            return p_rarch->path_config_default_file;
+         break;
       case RARCH_PATH_CONFIG_APPEND:
          if (!path_is_empty(RARCH_PATH_CONFIG_APPEND))
             return p_rarch->path_config_append_file;
@@ -2448,6 +2457,10 @@ const char *path_get(enum rarch_path_type type)
       case RARCH_PATH_CONFIG:
          if (!path_is_empty(RARCH_PATH_CONFIG))
             return p_rarch->path_config_file;
+         break;
+      case RARCH_PATH_CONFIG_DEFAULT:
+         if (!path_is_empty(RARCH_PATH_CONFIG_DEFAULT))
+            return p_rarch->path_config_default_file;
          break;
       case RARCH_PATH_CONFIG_APPEND:
          if (!path_is_empty(RARCH_PATH_CONFIG_APPEND))
@@ -2487,6 +2500,8 @@ size_t path_get_realsize(enum rarch_path_type type)
          return sizeof(p_rarch->path_core_options_file);
       case RARCH_PATH_CONFIG:
          return sizeof(p_rarch->path_config_file);
+      case RARCH_PATH_CONFIG_DEFAULT:
+         return sizeof(p_rarch->path_config_default_file);
       case RARCH_PATH_CONFIG_APPEND:
          return sizeof(p_rarch->path_config_append_file);
       case RARCH_PATH_CONFIG_OVERRIDE:
@@ -2535,13 +2550,17 @@ bool path_set(enum rarch_path_type type, const char *path)
          strlcpy(p_rarch->path_default_shader_preset, path,
                sizeof(p_rarch->path_default_shader_preset));
          break;
-      case RARCH_PATH_CONFIG_APPEND:
-         strlcpy(p_rarch->path_config_append_file, path,
-               sizeof(p_rarch->path_config_append_file));
-         break;
       case RARCH_PATH_CONFIG:
          strlcpy(p_rarch->path_config_file, path,
                sizeof(p_rarch->path_config_file));
+         break;
+      case RARCH_PATH_CONFIG_DEFAULT:
+         strlcpy(p_rarch->path_config_default_file, path,
+               sizeof(p_rarch->path_config_default_file));
+         break;
+      case RARCH_PATH_CONFIG_APPEND:
+         strlcpy(p_rarch->path_config_append_file, path,
+               sizeof(p_rarch->path_config_append_file));
          break;
       case RARCH_PATH_CONFIG_OVERRIDE:
          strlcpy(p_rarch->path_config_override_file, path,
@@ -2584,6 +2603,10 @@ bool path_is_empty(enum rarch_path_type type)
          break;
       case RARCH_PATH_CONFIG:
          if (string_is_empty(p_rarch->path_config_file))
+            return true;
+         break;
+      case RARCH_PATH_CONFIG_DEFAULT:
+         if (string_is_empty(p_rarch->path_config_default_file))
             return true;
          break;
       case RARCH_PATH_CONFIG_APPEND:
@@ -2648,6 +2671,9 @@ void path_clear(enum rarch_path_type type)
       case RARCH_PATH_CONFIG:
          *p_rarch->path_config_file = '\0';
          break;
+      case RARCH_PATH_CONFIG_DEFAULT:
+         *p_rarch->path_config_default_file = '\0';
+         break;
       case RARCH_PATH_CONFIG_APPEND:
          *p_rarch->path_config_append_file = '\0';
          break;
@@ -2678,6 +2704,7 @@ static void path_clear_all(void)
    path_clear(RARCH_PATH_CORE_LAST);
    path_clear(RARCH_PATH_CORE_OPTIONS);
    path_clear(RARCH_PATH_CONFIG);
+   path_clear(RARCH_PATH_CONFIG_DEFAULT);
    path_clear(RARCH_PATH_CONFIG_APPEND);
    path_clear(RARCH_PATH_CONFIG_OVERRIDE);
    path_clear(RARCH_PATH_DEFAULT_SHADER_PRESET);
@@ -4645,6 +4672,37 @@ bool command_event(enum event_command cmd, void *data)
             return false;
 #endif
          break;
+      case CMD_EVENT_MENU_SAVE_AS_CONFIG:
+         {
+            char as_path[PATH_MAX_LENGTH];
+            char conf_path[PATH_MAX_LENGTH];
+
+            snprintf(as_path, sizeof(as_path), "%s", (char *)data);
+
+            /* Prepend '.cfg' extension if missing */
+            if (!string_ends_with(as_path, FILE_PATH_CONFIG_EXTENSION))
+               strlcat(as_path, FILE_PATH_CONFIG_EXTENSION, sizeof(as_path));
+
+            fill_pathname_join(conf_path,
+                  settings->paths.directory_menu_config,
+                  as_path, sizeof(conf_path));
+
+            path_set(RARCH_PATH_CONFIG, conf_path);
+#ifdef HAVE_CONFIGFILE
+            command_event_save_current_config(OVERRIDE_NONE);
+#endif
+         }
+         break;
+      case CMD_EVENT_MENU_SAVE_MAIN_CONFIG:
+         {
+            const char *conf_path = path_get(RARCH_PATH_CONFIG_DEFAULT);
+
+            path_set(RARCH_PATH_CONFIG, conf_path);
+#ifdef HAVE_CONFIGFILE
+            command_event_save_current_config(OVERRIDE_NONE);
+#endif
+         }
+         break;
       case CMD_EVENT_PAUSE_TOGGLE:
          {
             bool paused          = (runloop_st->flags & RUNLOOP_FLAG_PAUSED) ? true : false;
@@ -5891,6 +5949,11 @@ int rarch_main(int argc, char *argv[], void *data)
       RARCH_ERR("FATAL: Failed to initialize the COM interface\n");
       return 1;
    }
+#endif
+
+#if defined(WEBOS)
+   struct rlimit limit = {0, 0};
+   setrlimit(RLIMIT_CORE, &limit);
 #endif
 
    rtime_init();
